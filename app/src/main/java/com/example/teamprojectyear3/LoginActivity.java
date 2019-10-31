@@ -6,17 +6,21 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 
 public class LoginActivity extends AppCompatActivity {
-
-    @Override void onCreate(Bundle savedInstantStance) {
-        super.onCreate(savedInstantStance);
-        setContentView(R.layout.activity_login);
-    }
 
     //defining views
     private Button buttonSignIn;
     private EditText editTextEmail;
     private EditText editTextPassword;
     private TextView textViewUserSignIn;
+
+    //DECLARE FIREBASE AUTH
+    private FirebaseAuth FirebaseAuth;
+
+    //declare progress dialog
+
+
 }
