@@ -60,6 +60,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/search"
                     android:layout_width="wrap_content"
                     android:layout_height="83dp"
                     android:layout_gravity="center_horizontal"
@@ -255,6 +256,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/logout"
                     android:layout_width="141dp"
                     android:layout_height="77dp"
                     android:layout_gravity="center_horizontal"
@@ -321,7 +323,7 @@
             android:src="@drawable/twitter" />
 
         <ImageView
-            android:id="@+id/Instagram"
+            android:id="@+id/instagram"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentRight="true"
