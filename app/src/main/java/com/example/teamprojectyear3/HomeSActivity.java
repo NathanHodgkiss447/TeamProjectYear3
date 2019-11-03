@@ -15,7 +15,9 @@ import com.google.firebase.auth.FirebaseAuth;
 public class HomeSActivity extends AppCompatActivity implements View.OnClickListener {
     ImageView btnLogout;
     ImageView btnQualification;
-
+    ImageView btnView;
+    ImageView btnLearn;
+    ImageView btnSettingSt;
 
     private TextView textViewUserEmail;
     EditText etName, etAge, etUserName;
@@ -52,6 +54,9 @@ public class HomeSActivity extends AppCompatActivity implements View.OnClickList
 
         btnLogout = (ImageView) findViewById(R.id.logout);
         btnQualification = (ImageView) findViewById(R.id.qualification);
+        btnView = (ImageView) findViewById(R.id.views);
+        btnLearn = (ImageView) findViewById(R.id.learnS);
+        btnSettingSt = (ImageView) findViewById(R.id.settingsSt);
         ImageView imgF = (ImageView) findViewById(R.id.facebook);
         ImageView imgT = (ImageView) findViewById(R.id.twitter);
         ImageView imgI = (ImageView) findViewById(R.id.instagram);
@@ -62,6 +67,9 @@ public class HomeSActivity extends AppCompatActivity implements View.OnClickList
 
         btnLogout.setOnClickListener(this);
         btnQualification.setOnClickListener(this);
+        btnView.setOnClickListener(this);
+        btnLearn.setOnClickListener(this);
+        btnSettingSt.setOnClickListener(this);
 
 
         //Facebook launching on icon tap
@@ -128,12 +136,32 @@ public class HomeSActivity extends AppCompatActivity implements View.OnClickList
 
 
         switch (v.getId()) {
+
+            case R.id.settingsSt:
+
+                startActivity(new Intent(this, SettingActivity.class));
+
+                break;
+
+            case R.id.learnS:
+
+                startActivity(new Intent(this, LearnActivity.class));
+
+                break;
+
+            case R.id.views:
+
+                startActivity(new Intent(this, ViewActivity.class));
+
+                break;
+
             case R.id.qualification:
 
                 startActivity(new Intent(this, QualificationsActivity.class));
 
 
                 break;
+
 
         }
 

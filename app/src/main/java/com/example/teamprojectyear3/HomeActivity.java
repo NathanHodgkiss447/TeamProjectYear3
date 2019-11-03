@@ -144,7 +144,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.search:
 
-                startActivity(new Intent(this, SearchActivity.class));
+                startActivity(new Intent(this, ViewActivity.class));
 
 
 
