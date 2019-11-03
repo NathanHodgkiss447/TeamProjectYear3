@@ -16,9 +16,12 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
-
+    ImageView btnRequirement;
+    ImageView btnLearn;
+    ImageView btnSetting;
     ImageView btnLogout;
     ImageView btnSearch;
+    ImageView btnMatches;
 
     private TextView textViewUserEmail;
     EditText etName, etAge, etUserName;
@@ -52,7 +55,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 */
         //Initialising views
-
+        btnMatches = (ImageView) findViewById(R.id.matches);
+        btnRequirement = (ImageView) findViewById(R.id.requirement);
+        btnSetting = (ImageView) findViewById(R.id.setting);
+        btnLearn = (ImageView) findViewById(R.id.learn);
         btnLogout = (ImageView) findViewById(R.id.logout);
         btnSearch = (ImageView) findViewById(R.id.search);
         ImageView imgF = (ImageView)findViewById(R.id.facebook);
@@ -63,8 +69,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         //Displays currently logged in user
        /* textViewUserEmail.setText("Welcome "+user.getEmail());*/
 
-        btnLogout.setOnClickListener(this);
+        btnMatches.setOnClickListener(this);
         btnSearch.setOnClickListener(this);
+        btnRequirement.setOnClickListener(this);
+        btnSetting.setOnClickListener(this);
+        btnRequirement.setOnClickListener(this);
+        btnLogout.setOnClickListener(this);
+
 
 
 
@@ -134,6 +145,50 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (v.getId()) {
             case R.id.search:
+
+                startActivity(new Intent(this, SearchActivity.class));
+
+
+
+
+                break;
+
+        }
+        switch (v.getId()) {
+            case R.id.matches:
+
+                startActivity(new Intent(this, SearchActivity.class));
+
+
+
+
+                break;
+
+        }
+        switch (v.getId()) {
+            case R.id.requirement:
+
+                startActivity(new Intent(this, SearchActivity.class));
+
+
+
+
+                break;
+
+        }
+        switch (v.getId()) {
+            case R.id.learn:
+
+                startActivity(new Intent(this, SearchActivity.class));
+
+
+
+
+                break;
+
+        }
+        switch (v.getId()) {
+            case R.id.setting:
 
                 startActivity(new Intent(this, SearchActivity.class));
 
