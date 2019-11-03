@@ -5,14 +5,11 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewOutlineProvider;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -71,6 +68,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
         btnMatches.setOnClickListener(this);
         btnSearch.setOnClickListener(this);
+        btnLearn.setOnClickListener(this);
         btnRequirement.setOnClickListener(this);
         btnSetting.setOnClickListener(this);
         btnRequirement.setOnClickListener(this);
@@ -157,7 +155,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.matches:
 
-                startActivity(new Intent(this, SearchActivity.class));
+                startActivity(new Intent(this, MatchesActivity.class));
 
 
 
@@ -168,7 +166,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.requirement:
 
-                startActivity(new Intent(this, SearchActivity.class));
+                startActivity(new Intent(this, QualificationsActivity.class));
 
 
 
@@ -179,7 +177,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.learn:
 
-                startActivity(new Intent(this, SearchActivity.class));
+                startActivity(new Intent(this, LearnActivity.class));
 
 
 
@@ -190,7 +188,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.setting:
 
-                startActivity(new Intent(this, SearchActivity.class));
+                startActivity(new Intent(this, SettingActivity.class));
 
 
 
