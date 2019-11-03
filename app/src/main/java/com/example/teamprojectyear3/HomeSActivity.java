@@ -5,14 +5,11 @@ import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.ViewOutlineProvider;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 
 
 public class HomeSActivity extends AppCompatActivity implements View.OnClickListener {
@@ -133,7 +130,7 @@ public class HomeSActivity extends AppCompatActivity implements View.OnClickList
         switch (v.getId()) {
             case R.id.qualification:
 
-                startActivity(new Intent(this, QualificationActivity.class));
+                startActivity(new Intent(this, QualificationsActivity.class));
 
 
                 break;

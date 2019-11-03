@@ -34,7 +34,7 @@
         </intent-filter>
     </activity>
 
-        <activity android:name=".QualificationActivity">
+        <activity android:name=".QualificationsActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
