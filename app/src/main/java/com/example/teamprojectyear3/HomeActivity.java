@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-/*
+
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -44,14 +44,14 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             //closing this activity
             finish();
             //starting login activity
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
 
 
         //getting current user
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-*/
+
         //Initialising views
         btnMatches = (ImageView) findViewById(R.id.matches);
         btnRequirement = (ImageView) findViewById(R.id.requirement);

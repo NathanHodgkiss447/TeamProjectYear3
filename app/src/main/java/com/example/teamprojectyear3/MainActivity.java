@@ -25,13 +25,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view){
         if(view == signIn){
+            finish();
             startActivity(new Intent(this, LoginActivity.class));
         }
         if(view == signUp){
+            finish();
             startActivity(new Intent(this, RegistrationActivity.class));
         }
     }
-
 }
 
 

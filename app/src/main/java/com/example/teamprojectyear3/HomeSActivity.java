@@ -2,8 +2,8 @@ package com.example.teamprojectyear3;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -33,9 +33,10 @@ public class HomeSActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homes);
 
-/*
+
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
+
 
         //if the user is not logged in
         //that means current user will return null
@@ -49,7 +50,7 @@ public class HomeSActivity extends AppCompatActivity implements View.OnClickList
 
         //getting current user
         FirebaseUser user = firebaseAuth.getCurrentUser();
-*/
+
 
         //Initialising views
 
@@ -167,6 +168,7 @@ public class HomeSActivity extends AppCompatActivity implements View.OnClickList
         }
 
     }
+
 }
 
 
