@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class HomeSActivity extends AppCompatActivity implements View.OnClickListener {
@@ -32,7 +33,7 @@ public class HomeSActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homes);
 
-        /*
+/*
         //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -48,8 +49,8 @@ public class HomeSActivity extends AppCompatActivity implements View.OnClickList
 
         //getting current user
         FirebaseUser user = firebaseAuth.getCurrentUser();
-
 */
+
         //Initialising views
 
         btnLogout = (ImageView) findViewById(R.id.logout);
