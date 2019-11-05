@@ -35,7 +35,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        //initializing firebase authentication object
+      /*  //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
 
         //if the user is not logged in
@@ -51,7 +51,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         //getting current user
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-
+*/
         //Initialising views
         btnMatches = (ImageView) findViewById(R.id.matches);
         btnRequirement = (ImageView) findViewById(R.id.requirement);

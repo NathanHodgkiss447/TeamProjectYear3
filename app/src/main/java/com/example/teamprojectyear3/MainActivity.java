@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if(view == signUp){
             finish();
-            startActivity(new Intent(this, RegistrationActivity.class));
+            startActivity(new Intent(this, SignActivity.class));
         }
     }
 }
