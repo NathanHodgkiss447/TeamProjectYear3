@@ -19,17 +19,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         //initialize views
         signIn = (Button) findViewById(R.id.signIn);
         signUp = (Button) findViewById(R.id.SignUp);
+
+        signIn.setOnClickListener(this);
+        signUp.setOnClickListener(this);
     }
 
 
     @Override
     public void onClick(View view){
         if(view == signIn){
-            finish();
+
             startActivity(new Intent(this, LoginActivity.class));
         }
         if(view == signUp){
-            finish();
+
             startActivity(new Intent(this, SignActivity.class));
         }
     }

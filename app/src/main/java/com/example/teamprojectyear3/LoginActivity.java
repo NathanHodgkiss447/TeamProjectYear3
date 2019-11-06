@@ -2,9 +2,9 @@ package com.example.teamprojectyear3;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
@@ -40,8 +40,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         //initialize firebase
         firebaseAuth = FirebaseAuth.getInstance();
 
-        if (firebaseAuth.getInstance() != null) {
-            startActivity(new Intent(this, HomeActivity.class));
+        if (firebaseAuth.getCurrentUser() !=null){
+            //start profile activity
+            finish();
+            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
         }
 
         //initialize views
@@ -90,7 +92,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         //task is successful
                         if(task.isSuccessful()){
                             finish();
-                            startActivity(new Intent(getApplicationContext(),HomeActivity.class));
+                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
                         }else{
                             Toast.makeText(LoginActivity.this, "An error occured please try again", Toast.LENGTH_SHORT).show();
                             return;
@@ -105,6 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (view == buttonSignIn) {
             userLogin();
+            startActivity(new Intent(this, HomeSActivity.class));
         }
         if (view == textViewUserSignIn) {
             startActivity(new Intent(this, SignActivity.class));
