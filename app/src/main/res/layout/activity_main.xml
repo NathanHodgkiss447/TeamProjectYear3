@@ -13,13 +13,13 @@
         android:layout_height="wrap_content"
         android:text="Welcome"
         android:textSize="36sp"
-        app:layout_constraintBottom_toTopOf="@+id/signIn"
+        app:layout_constraintBottom_toTopOf="@+id/signInBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/signIn"
+        android:id="@+id/signInBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="300dp"
@@ -39,7 +39,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/signIn"
+        app:layout_constraintTop_toBottomOf="@+id/signInBtn"
         app:layout_constraintVertical_bias="0.078" />
 
 </android.support.constraint.ConstraintLayout>
