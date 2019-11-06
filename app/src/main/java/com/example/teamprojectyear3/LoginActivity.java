@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (view == buttonSignIn) {
             userLogin();
-            startActivity(new Intent(this, HomeSActivity.class));
+            startActivity(new Intent(this, HomeActivity.class));
         }
         if (view == SignIn) {
             startActivity(new Intent(this, SignActivity.class));

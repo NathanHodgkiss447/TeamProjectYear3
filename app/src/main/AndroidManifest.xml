@@ -20,6 +20,13 @@
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignActivity" />
         <activity android:name=".HomeSActivity" />
+        <activity android:name=".HomeActivity"/>
+        <activity android:name=".LearnActivity"/>
+        <activity android:name=".MatchesActivity"/>
+        <activity android:name=".QualificationsActivity"/>
+        <activity android:name=".SearchActivity"/>
+        <activity android:name=".SettingActivity"/>
+        <activity android:name=".ViewActivity"/>
     </application>
 
 </manifest>
