@@ -92,10 +92,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         //task is successful
                         if(task.isSuccessful()){
                             finish();
-                            startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                            startActivity(new Intent(getApplicationContext(), HomeActivity.class));
                         }else{
                             Toast.makeText(LoginActivity.this, "An error occured please try again", Toast.LENGTH_SHORT).show();
-                            return;
+
                         }
                     }
                 });
@@ -107,7 +107,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (view == buttonSignIn) {
             userLogin();
-            startActivity(new Intent(this, HomeActivity.class));
+
         }
         if (view == SignIn) {
             startActivity(new Intent(this, SignActivity.class));
