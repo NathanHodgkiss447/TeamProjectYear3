@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
+
 
 
 public class HomeSActivity extends AppCompatActivity implements View.OnClickListener {
@@ -24,7 +24,7 @@ public class HomeSActivity extends AppCompatActivity implements View.OnClickList
     EditText etName, etAge, etUserName;
 
 
-    //firebase auth object
+   //declare firebase
     private FirebaseAuth firebaseAuth;
 
 
@@ -32,24 +32,8 @@ public class HomeSActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_homes);
+/*
 
-
-      /*  //initializing firebase authentication object
-        firebaseAuth = FirebaseAuth.getInstance();
-
-
-        //if the user is not logged in
-        //that means current user will return null
-        if(firebaseAuth.getCurrentUser() == null){
-            //closing this activity
-            finish();
-            //starting login activity
-            startActivity(new Intent(this, LoginActivity.class));
-        }
-
-
-        //getting current user
-        FirebaseUser user = firebaseAuth.getCurrentUser();
 */
 
         //Initialising views
