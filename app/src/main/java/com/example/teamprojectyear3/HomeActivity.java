@@ -35,6 +35,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        firebaseAuth = FirebaseAuth.getInstance();
       /*  //initializing firebase authentication object
         firebaseAuth = FirebaseAuth.getInstance();
 
@@ -136,9 +137,9 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             //logging out the user
             firebaseAuth.signOut();
             //closing activity
-            finish();
+
             //starting login activity
-            startActivity(new Intent(this, LoginActivity.class));
+            startActivity(new Intent(this, MainActivity.class));
         }
 
 
