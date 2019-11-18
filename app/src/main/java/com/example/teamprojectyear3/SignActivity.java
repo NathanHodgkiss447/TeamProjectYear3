@@ -15,11 +15,13 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.content.Intent;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class SignActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -36,6 +38,7 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
 
     //defining firebaseauth object
     private FirebaseAuth mAuth;
+    private FirebaseUser mUser;
 
 
 
@@ -51,8 +54,10 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
 
         //initializing firebase auth object
         mAuth = FirebaseAuth.getInstance();
-
-
+        mUser = mAuth.getCurrentUser();
+        if(mUser != null){
+           startActivity(new Intent(SignActivity.this, HomeActivity.class));
+        }
 
         //initializing views
         editTextEmail = (EditText) findViewById(R.id.editTextEmail);
@@ -73,8 +78,8 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
     private void registerUser(){
 
         //getting email and password from edit texts
-        String email = editTextEmail.getText().toString().trim();
-        String password  = editTextPassword.getText().toString().trim();
+        final String email = editTextEmail.getText().toString().trim();
+        final String password  = editTextPassword.getText().toString().trim();
 
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
@@ -100,8 +105,19 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         //checking if success
                         if(task.isSuccessful()){
-                            finish();
-
+                            mAuth.getCurrentUser().sendEmailVerification()
+                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if(task.isSuccessful()){
+                                                if(mAuth.getCurrentUser().isEmailVerified()){
+                                                    Toast.makeText(SignActivity.this,"Registration Successful",
+                                                            Toast.LENGTH_LONG).show();
+                                                    startActivity(new Intent(SignActivity.this, HomeActivity.class));
+                                                }
+                                            }
+                                        }
+                                    });
                         }else{
                             //display some message here
                             Toast.makeText(SignActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
@@ -113,17 +129,14 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     @Override
     public void onClick(View view) {
         //Signup button starts registerUser method
         if(view == buttonSignup){
             registerUser();
+
         }
-
-
-
-
     }
+
 
 }
