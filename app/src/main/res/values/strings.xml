@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">TeamProjectYear3</string>
+    <string name="Graduate_prompt">Choose A Dataset</string>
+
+    <string-array name="Graduate_arrays">
+        <item>Gradation Qualifications</item>
+        <item>Colleges</item>
+
+    </string-array>
 </resources>
