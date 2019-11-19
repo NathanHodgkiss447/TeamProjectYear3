@@ -10,7 +10,7 @@ import android.widget.ImageView;
 public class QualificationsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_qualification);
+        setContentView(R.layout.activity_requirements);
 
 
 
