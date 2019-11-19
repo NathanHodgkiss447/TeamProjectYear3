@@ -18,18 +18,37 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class PHPActivity extends AppCompatActivity {
+public class PHPActivity extends AppCompatActivity{
 
     ListView listView;
-
+    public String Grad;
+    public String Grad2;
+    public String New;
+    String[] items;
+    public void setGrad(String Grad){
+        this.Grad = Grad;
+    }
+    public void setGrad2(String Grad2){
+        this.Grad2= Grad2;
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activityphp);
 
         listView = findViewById(R.id.listView);
-        getJSON("http://phpmyadminnci.gearhostpreview.com/JSONCOLLEGES.php");
+        if() {
+            New = "jsoncolleges.php";
+        }
+        if(Grad2 == items[1]) {
+
+            New = "jsongrad.php";
+        }
+            getJSON("http://phpmyadminnci.gearhostpreview.com/"+ New);
+
     }
+
+
 
 
     private void getJSON(final String urlWebService) {
@@ -45,7 +64,7 @@ public class PHPActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                // Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
                 try {
                     loadIntoListView(s);
                 } catch (JSONException e) {
@@ -79,7 +98,7 @@ public class PHPActivity extends AppCompatActivity {
         String[] dylan = new String[jsonArray.length()];
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject obj = jsonArray.getJSONObject(i);
-            dylan[i] = obj.getString("name");
+            dylan[i] = obj.getString("FPCHS");
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dylan);
         listView.setAdapter(arrayAdapter);
