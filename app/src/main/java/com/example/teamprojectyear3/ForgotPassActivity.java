@@ -35,6 +35,25 @@ public class ForgotPassActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-
+        if(view == btnReset){
+            String userEmail = emailReset.getText().toString();
+            if(TextUtils.isEmpty(userEmail)){
+                Toast.makeText(ForgotPassActivity.this, "Please enter your email", Toast.LENGTH_LONG).show();
+            }
+            else{
+                fAuth.sendPasswordResetEmail(userEmail).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task) {
+                        if(task.isSuccessful()){
+                        Toast.makeText(ForgotPassActivity.this, "Please check your email to reset your password", Toast.LENGTH_LONG).show();
+                        startActivity(new Intent(ForgotPassActivity.this, LoginActivity.class));
+                        }else{
+                            String message = task.getException().getMessage();
+                            Toast.makeText(ForgotPassActivity.this, "An error ocurred please try again" +message, Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+            }
+        }
     }
 }
