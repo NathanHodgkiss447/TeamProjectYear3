@@ -37,8 +37,10 @@ public class PHPActivity extends AppCompatActivity{
         setContentView(R.layout.activityphp);
 
         listView = findViewById(R.id.listView);
-
-        if(Grad2 == items[1]) {
+        if(Grad == "College") {
+            New = "jsoncolleges.php";
+        }
+        if(Grad == "Graduate Qualification") {
 
             New = "jsongrad.php";
         }
@@ -62,7 +64,7 @@ public class PHPActivity extends AppCompatActivity{
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                //Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
                 try {
                     loadIntoListView(s);
                 } catch (JSONException e) {
