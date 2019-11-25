@@ -116,10 +116,10 @@ public class QualificationsActivity extends AppCompatActivity {
 
             String id = databaseReference.push().getKey();
 
-            EmployerRequirements employerRequirements = new EmployerRequirements(id, degreeName,
-                    degreeType, degreeLevel, area);
+            EmployerRequirements employer = new EmployerRequirements(id, employerName,
+                    employerDegreeType, employerDegreeLevel, employerArea);
 
-            databaseReference.child(id).setValue(employerRequirements);
+            databaseReference.child(id).setValue(employer);
             degreeName.setText("");
             degreeType.setText("");
             degreeLevel.setText("");

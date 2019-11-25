@@ -7,8 +7,6 @@ package com.example.teamprojectyear3;
  */
 
 
-import android.widget.EditText;
-
 public class EmployerRequirements {
     private String employerId;
     private String degreeName;
@@ -16,9 +14,12 @@ public class EmployerRequirements {
     private String degreeLevel;
     private String area;
 
-    public EmployerRequirements(String id, EditText degreeName, EditText degreeType, EditText degreeLevel, EditText area){
+
+    public EmployerRequirements(){
 
     }
+
+
 
     public EmployerRequirements(String employerId, String degreeName, String degreeType,
                                 String degreeLevel, String area){
