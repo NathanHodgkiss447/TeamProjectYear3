@@ -109,13 +109,12 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
                                         public void onComplete(@NonNull Task<Void> task) {
-                                            if(task.isSuccessful()){
                                                 if(mAuth.getCurrentUser().isEmailVerified()){
-                                                    Toast.makeText(SignActivity.this,"Registration Successful",
-                                                            Toast.LENGTH_LONG).show();
-                                                    startActivity(new Intent(SignActivity.this, HomeActivity.class));
+                                                    Toast.makeText(SignActivity.this,"Registration Successful", Toast.LENGTH_LONG).show();
+                                                    startActivity(new Intent(SignActivity.this, LoginActivity.class));
+                                            }else{
+                                                    Toast.makeText(SignActivity.this, "email is not registered", Toast.LENGTH_LONG).show();
                                                 }
-                                            }
                                         }
                                     });
                         }else{

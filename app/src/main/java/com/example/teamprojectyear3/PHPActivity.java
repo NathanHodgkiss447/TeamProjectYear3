@@ -37,9 +37,7 @@ public class PHPActivity extends AppCompatActivity{
         setContentView(R.layout.activityphp);
 
         listView = findViewById(R.id.listView);
-        if() {
-            New = "jsoncolleges.php";
-        }
+
         if(Grad2 == items[1]) {
 
             New = "jsongrad.php";
