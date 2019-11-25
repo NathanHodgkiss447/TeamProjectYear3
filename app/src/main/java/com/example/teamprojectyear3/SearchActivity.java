@@ -16,6 +16,8 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     private Button buttonella;
     public String Grad;
     public String Grad2;
+    private Object Spinner;
+
     public void onClick (View view) {
         //if logout is pressed
         if (view == buttonella) {
@@ -36,11 +38,11 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
 
 
         //Initialising views
-        buttonella = (Button) findViewById(R.id.buttonella);
-        ImageView imgF = (ImageView) findViewById(R.id.facebook);
-        ImageView imgT = (ImageView) findViewById(R.id.twitter);
-        ImageView imgI = (ImageView) findViewById(R.id.instagram);
-        ImageView imgL = (ImageView) findViewById(R.id.linkedin);
+        buttonella = findViewById(R.id.buttonella);
+        ImageView imgF = findViewById(R.id.facebook);
+        ImageView imgT = findViewById(R.id.twitter);
+        ImageView imgI = findViewById(R.id.instagram);
+        ImageView imgL = findViewById(R.id.linkedin);
 
         buttonella.setOnClickListener(this);
 
@@ -55,8 +57,18 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         dropdown.setAdapter(adapter);
 
 
+            Spinner spinner = findViewById(R.id.spinner1);
+
+            String text = spinner.getSelectedItem().toString();
 
 
+        if(Spinner == "College"){
+            Grad = "College";
+
+        }
+        else if(Spinner == "Graduate Qualification"){
+        Grad = "Graduate Qualification";
+        }
 
 
         PHPActivity p =new PHPActivity();

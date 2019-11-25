@@ -2,6 +2,8 @@
   <dictionary name="dyevk">
     <words>
       <w>fpchs</w>
+      <w>jsoncolleges</w>
+      <w>jsongrad</w>
     </words>
   </dictionary>
 </component>
