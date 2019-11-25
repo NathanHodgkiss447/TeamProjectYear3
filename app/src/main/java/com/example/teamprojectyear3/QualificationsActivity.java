@@ -28,7 +28,7 @@ public class QualificationsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_requirements);
 
-        databaseReference = FirebaseDatabase.getInstance().getReference("teamprojectyear3");
+        databaseReference = FirebaseDatabase.getInstance().getReference("requirements");
 
 
 
