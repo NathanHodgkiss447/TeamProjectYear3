@@ -5,31 +5,41 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.Toast;
+import java.lang.String;
 
 
-public class SearchActivity extends AppCompatActivity implements View.OnClickListener {
+
+public class SearchActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
 
     private Button buttonella;
     public String Grad;
     public String Grad2;
-    private Object Spinner;
+
+
 
     public void onClick (View view) {
-        //if logout is pressed
+
         if (view == buttonella) {
             //logging out the user
 
-            //closing activity
 
-            //starting login activity
+            if(Grad == "College"){
             startActivity(new Intent(this, PHPActivity.class));
         }
+            if(Grad =="Graduation Qualification"){
+                startActivity(new Intent(this, PHPActivity.class));
+            }}
     }
+
+
     //All dylan
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,27 +65,30 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
 //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
+        Spinner spinner = (Spinner)findViewById(R.id.spinner1);
+        String text = spinner.getSelectedItem().toString();
 
 
-            Spinner spinner = findViewById(R.id.spinner1);
-
-            String text = spinner.getSelectedItem().toString();
 
 
-        if(Spinner == "College"){
-            Grad = "College";
-
-        }
-        else if(Spinner == "Graduate Qualification"){
-        Grad = "Graduate Qualification";
-        }
 
 
-        PHPActivity p =new PHPActivity();
 
 
-        p.setGrad(Grad);
-        p.setGrad2(Grad2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         //Facebook launching on icon tap
         imgF.setOnClickListener(new View.OnClickListener() {
@@ -127,5 +140,13 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     }
 
 
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
+    }
 }

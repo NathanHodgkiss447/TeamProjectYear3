@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class PHPActivity extends AppCompatActivity {
+public class PHPActivity2 extends AppCompatActivity {
 
     ListView listView;
     public String Grad;
@@ -39,7 +39,7 @@ public class PHPActivity extends AppCompatActivity {
 
         listView = findViewById(R.id.listView);
 
-            getJSON("http://phpmyadminnci.gearhostpreview.com/jsongrad.php");
+        getJSON("http://phpmyadminnci.gearhostpreview.com/jsonColleges.php");
 
     }
 
@@ -62,7 +62,7 @@ public class PHPActivity extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-               // Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
                 try {
                     loadIntoListView(s);
                 } catch (JSONException e) {
