@@ -222,7 +222,7 @@
                 <ImageView
                     android:id="@+id/setting"
                     android:layout_width="113dp"
-                    android:layout_height="85dp"
+                    android:layout_height="51dp"
                     android:layout_gravity="center_horizontal"
                     android:src="@drawable/settings" />
 

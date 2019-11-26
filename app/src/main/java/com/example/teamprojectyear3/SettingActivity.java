@@ -1,44 +1,41 @@
 package com.example.teamprojectyear3;
 
+/*
+
+        Code From: https://www.youtube.com/watch?v=i_GuZ_6ZRJM&t=261s
+
+ */
+
 import android.content.Intent;
 import android.net.Uri;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.FirebaseFirestore;
-
-import java.util.HashMap;
-import java.util.Map;
-
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class SettingActivity extends AppCompatActivity {
 
-    private Button buttonSubmit;
-    private EditText editName;
-    private EditText editCompany;
-    private EditText editTitle;
-    private EditText editEmail;
+    private Button submit;
+    private EditText name;
+    private EditText company;
+    private EditText title;
+    private EditText email;
 
-
-    private static final String TAG = "SettingActivity";
+    DatabaseReference databaseReference;
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_setting);
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-
+        databaseReference = FirebaseDatabase.getInstance().getReference("settings");
 
         //Initialising views
 
@@ -46,14 +43,11 @@ public class SettingActivity extends AppCompatActivity {
         ImageView imgT = (ImageView) findViewById(R.id.twitter);
         ImageView imgI = (ImageView) findViewById(R.id.instagram);
         ImageView imgL = (ImageView) findViewById(R.id.linkedin);
-        editName = (EditText) findViewById(R.id.editTextName);
-        editCompany = (EditText) findViewById(R.id.editCompany);
-        editTitle = (EditText) findViewById(R.id.editTitle);
-        editEmail = (EditText) findViewById(R.id.editEmail);
-        buttonSubmit = (Button) findViewById(R.id.buttonSubmit);
-
-
-
+        name = (EditText) findViewById(R.id.editTextName);
+        company = (EditText) findViewById(R.id.editCompany);
+        title = (EditText) findViewById(R.id.editTitle);
+        email = (EditText) findViewById(R.id.editEmail);
+        submit = (Button) findViewById(R.id.buttonSubmit);
 
 
         //Facebook launching on icon tap
@@ -103,8 +97,77 @@ public class SettingActivity extends AppCompatActivity {
             }
         });
 
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addSettings();
+            }
+        });
+
+
     }
 
+    public void addSettings(){
+        String settingsName = name.getText().toString();
+        String settingsCompany = company.getText().toString();
+        String settingsTitle = title.getText().toString();
+        String settingsEmail = email.getText().toString();
+
+        if(!TextUtils.isEmpty(settingsName) && !TextUtils.isEmpty(settingsCompany) && !TextUtils.isEmpty(settingsTitle) && !TextUtils.isEmpty(settingsEmail) ){
+
+            String id = databaseReference.push().getKey();
+
+            EmployerSettings employerSettings = new EmployerSettings(id, settingsName,
+                    settingsCompany, settingsTitle, settingsEmail);
+
+            databaseReference.child(id).setValue(employerSettings);
+            name.setText("");
+            company.setText("");
+            title.setText("");
+            email.setText("");
+
+        } else{
+            Toast.makeText(SettingActivity.this, "Please fulfill all information required"
+                    , Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /*
     private void SubmitUser(){
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -140,4 +203,6 @@ public class SettingActivity extends AppCompatActivity {
             SubmitUser();
         }
     }
-}
+
+     */
+
