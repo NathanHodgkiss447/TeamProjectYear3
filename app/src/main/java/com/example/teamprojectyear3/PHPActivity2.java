@@ -23,12 +23,9 @@ public class PHPActivity2 extends AppCompatActivity {
     ListView listView;
     public String Grad;
 
-    public String New;
 
-    public void setGrad(String grad) {
-        Grad = grad;
 
-    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,7 +93,7 @@ public class PHPActivity2 extends AppCompatActivity {
         String[] dylan = new String[jsonArray.length()];
         for (int i = 0; i < jsonArray.length(); i++) {
             JSONObject obj = jsonArray.getJSONObject(i);
-            dylan[i] = obj.getString("FPCHS");
+            dylan[i] = obj.getString("name");
         }
         ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dylan);
         listView.setAdapter(arrayAdapter);

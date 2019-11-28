@@ -51,7 +51,7 @@
             android:layout_gravity="center"
             android:text="Button" />
 
-        <Spinner
+       <!-- <Spinner
             android:id="@+id/spinner1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -59,7 +59,35 @@
             android:layout_column="1"
             android:layout_gravity="bottom|center"
             android:background="@android:drawable/btn_dropdown"
-            ></Spinner>
+            ></Spinner>-->
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_gravity="bottom|center"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/radio_grad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="Graduate"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#FFFFFF" />
+
+            <RadioButton
+                android:id="@+id/radio_college"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onRadioButtonClicked"
+                android:text="College"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#FFFFFF" />
+        </RadioGroup>
+
+
 
     </GridLayout>
 

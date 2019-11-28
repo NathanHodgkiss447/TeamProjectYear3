@@ -72,4 +72,6 @@ public class ViewActivity extends AppCompatActivity {
 
     }
 
+    public void onRadioButtonClicked(View view) {
+    }
 }

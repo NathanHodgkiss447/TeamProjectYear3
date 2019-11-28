@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ArrayAdapter;
+import android.widget.RadioButton;
 import android.widget.Spinner;
 import android.widget.Toast;
 import java.lang.String;
@@ -19,7 +20,31 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
 
     private Button buttonella;
     public String Grad;
-    public String Grad2;
+    public Button Button;
+
+
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_search);}
+
+
+
+    public void onRadioButtonClicked(View view) {
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+
+        // Check which radio button was clicked
+        switch(view.getId()) {
+            case R.id.radio_college:
+                if (checked)
+                    Grad = "PHPActivity.class2";
+                    break;
+            case R.id.radio_grad:
+                if (checked)
+                    Grad = "PHPActivity.class";
+                    break;
+        }
+    }
 
 
 
@@ -28,22 +53,20 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         if (view == buttonella) {
             //logging out the user
 
+            try {
+                startActivity(new Intent(this, Class.forName(Grad)));
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            }
 
-            if(Grad == "College"){
-            startActivity(new Intent(this, PHPActivity.class));
+
         }
-            if(Grad =="Graduation Qualification"){
-                startActivity(new Intent(this, PHPActivity.class));
-            }}
-    }
 
 
     //All dylan
 
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+
 
 
 
@@ -56,7 +79,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
 
         buttonella.setOnClickListener(this);
 
-        //get the spinner from the xml.
+      /*  //get the spinner from the xml.
         Spinner dropdown = findViewById(R.id.spinner1);
 //create a list of items for the spinner.
         String[] items = new String[]{"Graduate Qualification", "College"};
@@ -65,8 +88,8 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
 //set the spinners adapter to the previously created one.
         dropdown.setAdapter(adapter);
-        Spinner spinner = (Spinner)findViewById(R.id.spinner1);
-        String text = spinner.getSelectedItem().toString();
+         Grad = dropdown.getSelectedItem().toString();*/
+
 
 
 

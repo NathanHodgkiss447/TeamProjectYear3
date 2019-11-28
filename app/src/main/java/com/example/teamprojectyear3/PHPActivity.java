@@ -23,19 +23,13 @@ public class PHPActivity extends AppCompatActivity {
     ListView listView;
     public String Grad;
 
-    public String New;
 
-    public void setGrad(String grad) {
-        Grad = grad;
-
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activityphp);
-        // Getter
-        Toast.makeText(getApplicationContext(), Grad, Toast.LENGTH_SHORT).show();
+
 
         listView = findViewById(R.id.listView);
 
