@@ -33,6 +33,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginTop="247dp"
         android:hint="Please enter your email"
+        android:textColor="@android:color/white"
         android:textColorHint="@android:color/white"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
@@ -41,6 +42,21 @@
         android:inputType="textEmailAddress"
         app:layout_constraintBottom_toTopOf="@+id/btnReset"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textforgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Forgot Password"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
