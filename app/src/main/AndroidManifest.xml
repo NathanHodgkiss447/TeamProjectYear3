@@ -4,6 +4,7 @@
     package="com.example.teamprojectyear3">
 
     <application
+
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
