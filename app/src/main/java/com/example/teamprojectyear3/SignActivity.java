@@ -25,27 +25,27 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SignActivity extends AppCompatActivity implements View.OnClickListener {
 
-    //defining view objects
-    private EditText editTextEmail;
-    private EditText editTextPassword;
-    private Button buttonSignup;
+//defining view objects
+private EditText editTextEmail;
+private EditText editTextPassword;
+private Button buttonSignup;
 
 
-    private TextView textViewSignup;
+private TextView textViewSignup;
 
-    private ProgressDialog progressDialog;
-
-
-    //defining firebaseauth object
-    private FirebaseAuth mAuth;
-    private FirebaseUser mUser;
+private ProgressDialog progressDialog;
 
 
+//defining firebaseauth object
+private FirebaseAuth mAuth;
+private FirebaseUser mUser;
 
 
-    //Everything within onCreate executes when app is launched
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+
+
+//Everything within onCreate executes when app is launched
+@Override
+protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign);
 
@@ -56,7 +56,7 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         if(mUser != null){
-           startActivity(new Intent(SignActivity.this, HomeActivity.class));
+        startActivity(new Intent(SignActivity.this, HomeActivity.class));
         }
 
         //initializing views
@@ -72,24 +72,24 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
         //attaching listener to button
         buttonSignup.setOnClickListener(this);
         textViewSignup.setOnClickListener(this);
-    }
+        }
 
-    //Method for registering user.
-    private void registerUser(){
+//Method for registering user.
+private void registerUser(){
 
-        //getting email and password from edit texts
-        final String email = editTextEmail.getText().toString().trim();
-        final String password  = editTextPassword.getText().toString().trim();
+//getting email and password from edit texts
+final String email = editTextEmail.getText().toString().trim();
+final String password  = editTextPassword.getText().toString().trim();
 
         //checking if email and passwords are empty
         if(TextUtils.isEmpty(email)){
-            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
-            return;
+        Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+        return;
         }
 
         if(TextUtils.isEmpty(password)){
-            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
-            return;
+        Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+        return;
         }
 
         //if the email and password are not empty
@@ -100,42 +100,42 @@ public class SignActivity extends AppCompatActivity implements View.OnClickListe
 
         //creating a new user
         mAuth.createUserWithEmailAndPassword(email, password)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        //checking if success
-                        if(task.isSuccessful()){
-                            mAuth.getCurrentUser().sendEmailVerification()
-                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-                                                if(mAuth.getCurrentUser().isEmailVerified()){
-                                                    Toast.makeText(SignActivity.this,"Registration Successful", Toast.LENGTH_LONG).show();
-                                                    startActivity(new Intent(SignActivity.this, LoginActivity.class));
-                                            }else{
-                                                    Toast.makeText(SignActivity.this, "email is not registered", Toast.LENGTH_LONG).show();
-                                                }
-                                        }
-                                    });
-                        }else{
-                            //display some message here
-                            Toast.makeText(SignActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
-                        }
-                        progressDialog.dismiss();
-                    }
-                });
-
-    }
-
-
-    @Override
-    public void onClick(View view) {
-        //Signup button starts registerUser method
-        if(view == buttonSignup){
-            registerUser();
+        .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+@Override
+public void onComplete(@NonNull Task<AuthResult> task) {
+        //checking if success
+        if(task.isSuccessful()){
+        mAuth.getCurrentUser().sendEmailVerification()
+        .addOnCompleteListener(new OnCompleteListener<Void>() {
+@Override
+public void onComplete(@NonNull Task<Void> task) {
+        if(mAuth.getCurrentUser().isEmailVerified()){
+        Toast.makeText(SignActivity.this,"Registration Successful", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(SignActivity.this, LoginActivity.class));
+        }else{
+        Toast.makeText(SignActivity.this, "email is not registered", Toast.LENGTH_LONG).show();
+        }
+        }
+        });
+        }else{
+        //display some message here
+        Toast.makeText(SignActivity.this,"Registration Error",Toast.LENGTH_LONG).show();
+        }
+        progressDialog.dismiss();
+        }
+        });
 
         }
-    }
 
 
-}
+@Override
+public void onClick(View view) {
+        //Signup button starts registerUser method
+        if(view == buttonSignup){
+        registerUser();
+
+        }
+        }
+
+
+        }
