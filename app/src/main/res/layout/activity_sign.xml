@@ -10,13 +10,14 @@
 
     <Button
         android:id="@+id/buttonSignup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="109dp"
+        android:layout_height="43dp"
         android:layout_marginStart="24dp"
         android:layout_marginLeft="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
         android:layout_marginRight="24dp"
+        android:background="@drawable/roundedbutton"
         android:layout_marginBottom="200dp"
         android:text="Sign Up"
         app:layout_constraintBottom_toBottomOf="parent"
