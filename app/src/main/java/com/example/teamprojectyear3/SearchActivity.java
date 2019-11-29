@@ -8,11 +8,14 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.ArrayAdapter;
+//import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
-import android.widget.Spinner;
+//import android.widget.Spinner;
 import android.widget.Toast;
 import java.lang.String;
+import java.lang.*;
+
+
 
 
 
@@ -23,51 +26,49 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
     public Button Button;
 
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);}
-
-
-
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-        // Check which radio button was clicked
-        switch(view.getId()) {
-            case R.id.radio_college:
-                if (checked)
-                    Grad = "PHPActivity.class2";
-                    break;
-            case R.id.radio_grad:
-                if (checked)
-                    Grad = "PHPActivity.class";
-                    break;
-        }
-    }
-
-
-
     public void onClick (View view) {
 
         if (view == buttonella) {
             //logging out the user
 
-            try {
-                startActivity(new Intent(this, Class.forName(Grad)));
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
+            //Intent i = new Intent();
+// Set the component using a String
+            if(Grad == "Grad") {
+                startActivity(new Intent(SearchActivity.this, PHPActivity.class));
+                Toast.makeText(getApplicationContext(), Grad, Toast.LENGTH_SHORT).show();
+            }
+            else if (Grad == "College"){
+                startActivity(new Intent(SearchActivity.this, PHPActivity2.class));
+                Toast.makeText(getApplicationContext(), Grad, Toast.LENGTH_SHORT).show();
+
             }
 
+        }}
+
+
+
+
+        public void onRadioButtonClicked(View view) {
+            // Is the button now checked?
+            boolean checked = ((RadioButton) view).isChecked();
+            // Check which radio button was clicked
+            switch(view.getId()) {
+                case R.id.radio_college:
+                    if (checked)
+                         Grad = "College";
+
+                    break;
+                case R.id.radio_grad:
+                    if (checked)
+                        Grad = "Grad";
+                    break;
+            }
 
         }
 
-
-    //All dylan
-
-
-
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_search);
 
 
         //Initialising views
@@ -77,7 +78,37 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         ImageView imgI = findViewById(R.id.instagram);
         ImageView imgL = findViewById(R.id.linkedin);
 
+
         buttonella.setOnClickListener(this);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //All dylan
+
+
+
+
+
+
+
+
+
 
       /*  //get the spinner from the xml.
         Spinner dropdown = findViewById(R.id.spinner1);
@@ -124,7 +155,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-        //Twitter launching on icon tap
+    //Twitter launching on icon tap
         imgT.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent();
@@ -136,7 +167,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         });
 
 
-        //Linkedin launching on icon tap
+    //Linkedin launching on icon tap
         imgL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -148,7 +179,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-        //Instagram launching on icon tap
+    //Instagram launching on icon tap
         imgI.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -160,7 +191,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
             }
         });
 
-    }
+}
 
 
     @Override

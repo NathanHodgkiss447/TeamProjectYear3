@@ -14,6 +14,7 @@
         tools:ignore="AllowBackup,GoogleAppIndexingWarning,UnusedAttribute">
         <activity android:name=".ProfileActivity"></activity>
         <activity android:name=".PHPActivity"></activity>
+        <activity android:name=".PHPActivity2"></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
