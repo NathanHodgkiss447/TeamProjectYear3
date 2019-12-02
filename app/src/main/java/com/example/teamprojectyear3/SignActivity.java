@@ -1,9 +1,5 @@
 package com.example.teamprojectyear3;
 
-
-
-
-
 import android.app.ProgressDialog;
 
 import android.os.Bundle;
@@ -114,8 +110,8 @@ public void onComplete(@NonNull Task<Void> task) {
         startActivity(new Intent(SignActivity.this, LoginActivity.class));
 
         }else{
-        Toast.makeText(SignActivity.this, "email is not registered", Toast.LENGTH_LONG).show();
-        startActivity(new Intent(SignActivity.this, LoginActivity.class));
+        Toast.makeText(SignActivity.this, "Registration Successful", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(SignActivity.this, MainActivity.class));
         }
         }
         });
@@ -132,7 +128,7 @@ public void onComplete(@NonNull Task<Void> task) {
 
 @Override
 public void onClick(View view) {
-        //Signup button starts registerUser method
+        //Sign up button starts registerUser method
         if(view == buttonSignup){
         registerUser();
 

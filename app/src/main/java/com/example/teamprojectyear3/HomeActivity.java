@@ -56,7 +56,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         //if the user is not logged in
         //that means current user will return null
         if(firebaseAuth.getCurrentUser() == null){
-            //closing this activity
+            //if(firebaseAuth.currentuser().emailverified)
             finish();
             //starting login activity
             startActivity(new Intent(this, MainActivity.class));
