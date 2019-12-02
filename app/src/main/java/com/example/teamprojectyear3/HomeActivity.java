@@ -2,6 +2,7 @@ package com.example.teamprojectyear3;
 
 import android.content.Intent;
 import android.net.Uri;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -36,8 +37,21 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_home);
 
         firebaseAuth = FirebaseAuth.getInstance();
-      /*  //initializing firebase authentication object
-        firebaseAuth = FirebaseAuth.getInstance();
+        /*
+        FirebaseAuth.AuthStateListener authStateListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                if(firebaseAuth.getCurrentUser() == null){
+                    finish();
+                    startActivity(new Intent(HomeActivity.this, MainActivity.class));
+                }
+            }
+        };
+
+ */
+        //initializing firebase authentication object
+
+        //firebaseAuth.addAuthStateListener(authStateListener);
 
         //if the user is not logged in
         //that means current user will return null
@@ -49,10 +63,12 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         }
 
 
+
+
         //getting current user
         FirebaseUser user = firebaseAuth.getCurrentUser();
 
-*/
+
         //Initialising views
         btnMatches = (ImageView) findViewById(R.id.matches);
         btnRequirement = (ImageView) findViewById(R.id.requirement);
@@ -128,7 +144,6 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
 
 
     }
-
 
     @Override
     public void onClick(View v) {

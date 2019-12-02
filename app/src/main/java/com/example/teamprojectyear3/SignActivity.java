@@ -56,7 +56,7 @@ protected void onCreate(Bundle savedInstanceState) {
         mAuth = FirebaseAuth.getInstance();
         mUser = mAuth.getCurrentUser();
         if(mUser != null){
-        startActivity(new Intent(SignActivity.this, HomeActivity.class));
+        startActivity(new Intent(SignActivity.this, LoginActivity.class));
         }
 
         //initializing views
@@ -112,8 +112,10 @@ public void onComplete(@NonNull Task<Void> task) {
         if(mAuth.getCurrentUser().isEmailVerified()){
         Toast.makeText(SignActivity.this,"Registration Successful", Toast.LENGTH_LONG).show();
         startActivity(new Intent(SignActivity.this, LoginActivity.class));
+
         }else{
         Toast.makeText(SignActivity.this, "email is not registered", Toast.LENGTH_LONG).show();
+        startActivity(new Intent(SignActivity.this, LoginActivity.class));
         }
         }
         });
