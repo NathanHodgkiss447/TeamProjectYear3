@@ -22,7 +22,7 @@
             android:layout_centerInParent="true"
             android:text="Settings"
             android:textColor="@android:color/white"
-            android:textSize="50sp"
+            android:textSize="24dp"
             android:textStyle="bold" />
 
     </RelativeLayout>

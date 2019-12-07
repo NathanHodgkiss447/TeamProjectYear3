@@ -22,7 +22,7 @@
             android:layout_centerInParent="true"
             android:text="Home Page"
             android:textColor="@android:color/white"
-            android:textSize="50sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
