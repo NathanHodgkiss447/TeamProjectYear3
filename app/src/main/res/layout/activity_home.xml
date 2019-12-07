@@ -9,6 +9,10 @@
     android:weightSum="10"
     tools:context=".HomeActivity">
 
+    /* References :
+    https://www.youtube.com/watch?v=VUPM387qyrw
+    */
+
     <!-- header-->
     <RelativeLayout
         android:layout_width="match_parent"

@@ -9,6 +9,12 @@
     android:orientation="vertical"
     android:weightSum="10">
 
+
+    /* References :
+    https://www.youtube.com/watch?v=jEmq1B1gveM
+    https://www.youtube.com/watch?v=MP3tialkL2Y
+    */
+
     <!-- header-->
     <RelativeLayout
         android:layout_width="match_parent"
