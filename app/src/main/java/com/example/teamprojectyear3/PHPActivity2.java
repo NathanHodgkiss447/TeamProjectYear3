@@ -3,6 +3,7 @@ package com.example.teamprojectyear3;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -78,20 +79,20 @@ public class PHPActivity2 extends AppCompatActivity {
         for(int d = 0; d< jsonArray.length(); d++){
             JSONObject obj = jsonArray.getJSONObject(d);
 
-            String FCPHS = obj.getString("FCPHS");
-            String maleGrad = obj.getString("Male");
-            String femaleGrad = obj.getString("Female");
+            String FPCHS = obj.getString("FPCHS");
+            String maleGrad = obj.getString("Male Certificates");
+            String femaleGrad = obj.getString("Female Certificates");
 
-            Graduation Name = new Graduation (FCPHS, maleGrad, femaleGrad);
+            Graduation Name = new Graduation (FPCHS, maleGrad, femaleGrad);
 
             gradList.add(Name);
 
-
+            Log.i("myTag", "This" + FPCHS);
 
 
         }
 
-        //Log.i("myTag", "This" + collegeList);
+
         ListView listView = findViewById(R.id.listview);
         GraduationListAdapter adapter = new GraduationListAdapter(this, R.layout.adapter_view_layout, gradList);
         listView.setAdapter(adapter);

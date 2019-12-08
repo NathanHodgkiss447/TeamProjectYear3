@@ -3,20 +3,22 @@ package com.example.teamprojectyear3;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 //import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 //import android.widget.Spinner;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.Toast;
 import java.lang.String;
 import java.lang.*;
-
-
-
+import java.lang.reflect.Array;
 
 
 public class SearchActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
@@ -24,7 +26,7 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
     private Button buttonella;
     public String Grad;
     public Button Button;
-
+    RadioGroup radio1;
 
     public void onClick (View view) {
 
@@ -56,19 +58,40 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
                 case R.id.radio_college:
                     if (checked)
                          Grad = "College";
-
+                    radio1.setVisibility(View.INVISIBLE);
                     break;
                 case R.id.radio_grad:
                     if (checked)
                         Grad = "Grad";
+                    radio1.setVisibility(View.VISIBLE);
                     break;
             }
 
-        }
+
+
+            }
+
+
+
+
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_search);
+
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+// Create an ArrayAdapter using the string array and a default spinner layout
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.GradArray, android.R.layout.simple_spinner_item);
+// Specify the layout to use when the list of choices appears
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+// Apply the adapter to the spinner
+        spinner.setAdapter(adapter);
+
+
+
 
 
         //Initialising views
@@ -77,10 +100,11 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         ImageView imgT = findViewById(R.id.twitter);
         ImageView imgI = findViewById(R.id.instagram);
         ImageView imgL = findViewById(R.id.linkedin);
-
+         //radio1= findViewById(R.id.radio1);
 
         buttonella.setOnClickListener(this);
 
+        //<> GradArray = (Array<>) findViewById(R)
 
 
 
@@ -108,18 +132,6 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
 
 
 
-
-
-      /*  //get the spinner from the xml.
-        Spinner dropdown = findViewById(R.id.spinner1);
-//create a list of items for the spinner.
-        String[] items = new String[]{"Graduate Qualification", "College"};
-//create an adapter to describe how the items are displayed, adapters are used in several places in android.
-//There are multiple variations of this, but this is the basic variant.
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, items);
-//set the spinners adapter to the previously created one.
-        dropdown.setAdapter(adapter);
-         Grad = dropdown.getSelectedItem().toString();*/
 
 
 

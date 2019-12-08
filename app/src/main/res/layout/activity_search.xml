@@ -51,45 +51,190 @@
             android:layout_gravity="center"
             android:text="Button" />
 
-       <!-- <Spinner
-            android:id="@+id/spinner1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_row="1"
-            android:layout_column="1"
-            android:layout_gravity="bottom|center"
-            android:background="@android:drawable/btn_dropdown"
-            ></Spinner>-->
+
         <RadioGroup
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="147dp"
             android:layout_row="1"
             android:layout_column="1"
             android:layout_gravity="bottom|center"
-            android:orientation="vertical">
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:id="@+id/radio22">
 
             <RadioButton
                 android:id="@+id/radio_grad"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
                 android:onClick="onRadioButtonClicked"
                 android:text="Graduate"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF" />
 
+
             <RadioButton
                 android:id="@+id/radio_college"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_row="1"
+                android:layout_column="1"
                 android:onClick="onRadioButtonClicked"
                 android:text="College"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF" />
+
+
+            <Spinner
+                android:id="@+id/spinner1"
+                android:layout_width="200dp"
+                android:layout_height="25dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"/>
+            <!--android:layout_below="@+id/radio22"-->
         </RadioGroup>
 
 
 
+
+
     </GridLayout>
+
+
+        <!-- <RadioGroup
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:layout_row="1"
+             android:layout_column="1"
+             android:layout_gravity="bottom|center"
+             android:orientation="vertical"
+             android:id="@+id/radio1"
+             android:visibility="invisible"
+             android:layout_weight="1"
+             >
+
+             <RadioButton
+                 android:id="@+id/radio5"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:onClick="onRadioButtonClicked"
+                 android:text="Ordinary Degree"
+                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                 android:textColor="#FFFFFF"
+                 android:layout_below="@+id/radio_college"/>
+             <RadioButton
+                 android:id="@+id/radio6"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:onClick="onRadioButtonClicked"
+                 android:text="Honours Degree"
+                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                 android:textColor="#FFFFFF"
+                 android:layout_weight="9"/>
+
+             <RadioButton
+                 android:id="@+id/radio8"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:onClick="onRadioButtonClicked"
+                 android:text="Postgraduate Diploma"
+                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                 android:textColor="#FFFFFF"
+                 android:layout_weight="9"/>
+
+             <RadioButton
+                 android:id="@+id/radio9"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:onClick="onRadioButtonClicked"
+                 android:text="Taught Masters"
+                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                 android:textColor="#FFFFFF"
+                 android:layout_weight="9"/>
+
+
+
+
+         <RadioButton
+             android:id="@+id/radio2"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_row="1"
+             android:layout_column="1"
+             android:onClick="onRadioButtonClicked"
+             android:text="Certificates"
+             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+             android:textColor="#FFFFFF" />
+
+         <RadioButton
+             android:id="@+id/radio4"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_row="1"
+             android:layout_column="1"
+             android:onClick="onRadioButtonClicked"
+             android:text="Undergraduate Diplomas"
+             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+             android:textColor="#FFFFFF" />
+
+         <RadioButton
+             android:id="@+id/radio7"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_row="1"
+             android:layout_column="1"
+             android:onClick="onRadioButtonClicked"
+             android:text="Postgraduate Certificate"
+             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+             android:textColor="#FFFFFF" />
+
+         <RadioButton
+             android:id="@+id/radio3"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_row="1"
+             android:layout_column="1"
+             android:onClick="onRadioButtonClicked"
+             android:text="Higher Certificates"
+             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+             android:textColor="#FFFFFF" />
+
+         <RadioButton
+             android:id="@+id/radio10"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_row="1"
+             android:layout_column="1"
+             android:onClick="onRadioButtonClicked"
+             android:text="Research Masters"
+             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+             android:textColor="#FFFFFF" />
+
+         <RadioButton
+             android:id="@+id/radio11"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_row="1"
+             android:layout_column="1"
+             android:onClick="onRadioButtonClicked"
+             android:text="PHD"
+             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+             android:textColor="#FFFFFF" />
+
+         <RadioButton
+             android:id="@+id/radio12"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_row="1"
+             android:layout_column="1"
+             android:onClick="onRadioButtonClicked"
+             android:text="Higher Diploma"
+             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+             android:textColor="#FFFFFF" />
+         </RadioGroup>
+ -->
+
 
     <!--footer-->
     <RelativeLayout

@@ -2,23 +2,23 @@ package com.example.teamprojectyear3;
 
 public class Graduation {
 
-String FCPHS;
+String FPCHS;
 String maleGrad;
 String femaleGrad;
 
-    public Graduation(String FCPHS, String maleGrad, String femaleGrad) {
-        this.FCPHS = FCPHS;
+    public Graduation(String FPCHS, String maleGrad, String femaleGrad) {
+        this.FPCHS = FPCHS;
         this.maleGrad = maleGrad;
         this.femaleGrad = femaleGrad;
     }
 
 
-    public String getFCPHS() {
-        return FCPHS;
+    public String getFPCHS() {
+        return FPCHS;
     }
 
-    public void setFCPHS(String FCPHS) {
-        this.FCPHS = FCPHS;
+    public void setFPCHS(String FPCHS) {
+        this.FPCHS = FPCHS;
     }
 
     public String getMaleGrad() {
