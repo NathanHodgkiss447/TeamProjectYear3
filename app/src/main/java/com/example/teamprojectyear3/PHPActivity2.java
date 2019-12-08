@@ -1,11 +1,7 @@
 package com.example.teamprojectyear3;
 
-
 import android.os.AsyncTask;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -17,33 +13,19 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
 
-public class PHPActivity2 extends AppCompatActivity {
-
-    ListView listView;
-    public String Grad;
-
-
-
-
-
+public class PHPActivity2 {
+    ListView listView;}
+/*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activityphp);
-        // Getter
-        Toast.makeText(getApplicationContext(), Grad, Toast.LENGTH_SHORT).show();
 
-        listView = findViewById(R.id.listView);
-
+        listView = (ListView) findViewById(R.id.listview);
         getJSON("http://phpmyadminnci.gearhostpreview.com/jsonColleges.php");
-
     }
-
-
-
-
-
 
 
     private void getJSON(final String urlWebService) {
@@ -59,7 +41,7 @@ public class PHPActivity2 extends AppCompatActivity {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                // Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
                 try {
                     loadIntoListView(s);
                 } catch (JSONException e) {
@@ -76,7 +58,7 @@ public class PHPActivity2 extends AppCompatActivity {
                     BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(con.getInputStream()));
                     String json;
                     while ((json = bufferedReader.readLine()) != null) {
-                        sb.append(json).append("\n");
+                        sb.append(json + "\n");
                     }
                     return sb.toString().trim();
                 } catch (Exception e) {
@@ -88,17 +70,33 @@ public class PHPActivity2 extends AppCompatActivity {
         getJSON.execute();
     }
 
-    private void loadIntoListView(String json) throws JSONException {
+
+    public void loadIntoListView(String json) throws JSONException{
         JSONArray jsonArray = new JSONArray(json);
-        String[] dylan = new String[jsonArray.length()];
-        for (int i = 0; i < jsonArray.length(); i++) {
-            JSONObject obj = jsonArray.getJSONObject(i);
-            dylan[i] = obj.getString("name");
+        ArrayList<Colleges> collegeList = new ArrayList<>();
+        for(int d = 0; d< jsonArray.length(); d++){
+            JSONObject obj = jsonArray.getJSONObject(d);
+
+            String name = obj.getString("name");
+            String male = obj.getString("Male");
+            String female = obj.getString("Female");
+
+            Colleges Name = new Colleges (name, male, female);
+
+            collegeList.add(Name);
+
+
+
+
         }
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, dylan);
-        listView.setAdapter(arrayAdapter);
+
+        //Log.i("myTag", "This" + collegeList);
+        ListView listView = findViewById(R.id.listview);
+        CollegeListAdapter adapter = new CollegeListAdapter(this, R.layout.adapter_view_layout, collegeList);
+        listView.setAdapter(adapter);
+
+
+
     }
 
-}
-
-
+}*/
