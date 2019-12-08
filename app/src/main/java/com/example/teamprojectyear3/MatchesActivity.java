@@ -49,12 +49,43 @@ public class MatchesActivity extends AppCompatActivity /*implements View.OnClick
            ImageView imgT = (ImageView) findViewById(R.id.twitter);
            ImageView imgI = (ImageView) findViewById(R.id.instagram);
            ImageView imgL = (ImageView) findViewById(R.id.linkedin);
-           company = (EditText) findViewById(R.id.editTextCompany);
-           company1 = company.toString();
-           Find = (Button) findViewById(R.id.find);
 
-           //Find.setOnClickListener(this);
+           Button bt1 = (Button) findViewById(R.id.find);
 
+          // Find.setOnClickListener(this);
+
+           bt1.setOnClickListener(new Button.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   ref.addValueEventListener(new ValueEventListener() {
+                       @Override
+                       public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                           for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                               requirement = ds.getValue(requirements.class);
+                               company2 = requirement.getArea().toString();
+
+
+                                   list.add("Degree : "+requirement.getDegreeName().toString());
+                                   list.add("Area : "+requirement.getArea().toString());
+                                   list.add("Level : "+requirement.getDegreeLevel().toString());
+                                   list.add("         ");
+
+
+
+
+                           }
+                           listView.setAdapter(adapter);
+                       }
+
+                       @Override
+                       public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                       }
+                   });
+
+
+               }
+           });
 
            requirement = new requirements();
            listView = (ListView) findViewById(R.id.listView);
@@ -62,27 +93,6 @@ public class MatchesActivity extends AppCompatActivity /*implements View.OnClick
            ref = database.getReference("requirements");
            list = new ArrayList<>();
            adapter = new ArrayAdapter<String>(this, R.layout.requirement_info, R.id.requirementInfo, list);
-           ref.addValueEventListener(new ValueEventListener() {
-               @Override
-               public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                   for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                       requirement = ds.getValue(requirements.class);
-
-
-
-
-                           list.add(requirement.getDegreeName().toString() + " // " + requirement.getArea().toString() + " //" + requirement.getDegreeLevel().toString());
-
-
-                   }
-                   listView.setAdapter(adapter);
-               }
-
-               @Override
-               public void onCancelled(@NonNull DatabaseError databaseError) {
-
-               }
-           });
 
 
            //Facebook launching on icon tap
@@ -138,14 +148,14 @@ public class MatchesActivity extends AppCompatActivity /*implements View.OnClick
 
 
 
-/*
-    @Override
+
+   /* @Override
     public void onClick(View view) {
         if(view == Find){
             find();
 
         }
-    }
+    }*/
 
- */
+
 }

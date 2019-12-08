@@ -9,6 +9,13 @@
     android:orientation="vertical"
     android:weightSum="10">
 
+
+    /* References :
+    https://www.youtube.com/watch?v=jEmq1B1gveM
+    https://www.youtube.com/watch?v=MP3tialkL2Y
+    */
+
+
     <!-- header-->
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,7 +29,7 @@
             android:layout_centerInParent="true"
             android:text="View Page"
             android:textColor="@android:color/white"
-            android:textSize="50sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -39,35 +46,40 @@
         android:layout_height="0dp"
         android:layout_weight="2"
         android:alignmentMode="alignMargins"
-
         android:columnOrderPreserved="false"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
        >
 
-        <EditText
-            android:id="@+id/editTextCompany"
-            android:layout_width="372dp"
-            android:layout_height="75dp"
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="343dp"
+            android:layout_height="28dp"
             android:layout_row="0"
             android:layout_column="0"
-            android:ems="10"
-            android:hint="Company"
-            android:inputType="text"
+            android:layout_marginTop="10dp"
+            android:lines="10"
+            android:maxLines="10"
+            android:text="Button below reveals  records"
             android:textAlignment="center"
-            android:textColorHint="@android:color/white" />
+            android:textColor="@android:color/white"
+            android:textSize="19sp" />
 
         <Button
             android:id="@+id/find"
-            android:layout_width="352dp"
+            android:layout_width="145dp"
             android:layout_height="wrap_content"
-            android:layout_row="1"
+            android:layout_row="2"
             android:layout_column="0"
-            android:layout_marginLeft="10dp"
+            android:layout_marginLeft="100dp"
             android:layout_marginTop="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
-            android:text="Button" />
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="20dp"
+            android:background="@drawable/roundedbutton"
+            android:text="Reveal"
+            android:textAlignment="center" />
+
+
     </GridLayout>
 
     <GridLayout

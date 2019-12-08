@@ -9,6 +9,10 @@
     android:weightSum="10"
     tools:context=".HomeActivity">
 
+    /* References :
+    https://www.youtube.com/watch?v=VUPM387qyrw
+    */
+
     <!-- header-->
     <RelativeLayout
         android:layout_width="match_parent"
@@ -22,7 +26,7 @@
             android:layout_centerInParent="true"
             android:text="Home Page"
             android:textColor="@android:color/white"
-            android:textSize="50sp"
+            android:textSize="30sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
