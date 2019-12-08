@@ -24,6 +24,10 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".CollegeListAdapter"/>
+        <activity android:name=".PHPActivity"/>
+        <activity android:name=".GraduationListAdapter"/>
+        <activity android:name=".Graduation"/>
+        <activity android:name=".Colleges"/>
         <activity android:name=".SignActivity" />
         <activity android:name=".HomeSActivity" />
         <activity android:name=".HomeActivity"/>

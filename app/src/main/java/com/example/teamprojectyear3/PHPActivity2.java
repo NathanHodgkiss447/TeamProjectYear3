@@ -2,6 +2,7 @@ package com.example.teamprojectyear3;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -15,16 +16,16 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 
-public class PHPActivity2 {
-    ListView listView;}
-/*
+public class PHPActivity2 extends AppCompatActivity {
+    ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activityphp);
 
         listView = (ListView) findViewById(R.id.listview);
-        getJSON("http://phpmyadminnci.gearhostpreview.com/jsonColleges.php");
+        getJSON("http://phpmyadminnci.gearhostpreview.com/jsongrad.php");
     }
 
 
@@ -41,7 +42,7 @@ public class PHPActivity2 {
             @Override
             protected void onPostExecute(String s) {
                 super.onPostExecute(s);
-                Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(getApplicationContext(), s, Toast.LENGTH_SHORT).show();
                 try {
                     loadIntoListView(s);
                 } catch (JSONException e) {
@@ -73,17 +74,17 @@ public class PHPActivity2 {
 
     public void loadIntoListView(String json) throws JSONException{
         JSONArray jsonArray = new JSONArray(json);
-        ArrayList<Colleges> collegeList = new ArrayList<>();
+        ArrayList<Graduation> gradList = new ArrayList<>();
         for(int d = 0; d< jsonArray.length(); d++){
             JSONObject obj = jsonArray.getJSONObject(d);
 
-            String name = obj.getString("name");
-            String male = obj.getString("Male");
-            String female = obj.getString("Female");
+            String FCPHS = obj.getString("FCPHS");
+            String maleGrad = obj.getString("Male");
+            String femaleGrad = obj.getString("Female");
 
-            Colleges Name = new Colleges (name, male, female);
+            Graduation Name = new Graduation (FCPHS, maleGrad, femaleGrad);
 
-            collegeList.add(Name);
+            gradList.add(Name);
 
 
 
@@ -92,11 +93,11 @@ public class PHPActivity2 {
 
         //Log.i("myTag", "This" + collegeList);
         ListView listView = findViewById(R.id.listview);
-        CollegeListAdapter adapter = new CollegeListAdapter(this, R.layout.adapter_view_layout, collegeList);
+        GraduationListAdapter adapter = new GraduationListAdapter(this, R.layout.adapter_view_layout, gradList);
         listView.setAdapter(adapter);
 
 
 
     }
 
-}*/
+}

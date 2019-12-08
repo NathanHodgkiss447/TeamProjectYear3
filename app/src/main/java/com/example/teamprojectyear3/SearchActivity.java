@@ -34,12 +34,12 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
             //Intent i = new Intent();
 // Set the component using a String
             if(Grad == "Grad") {
-                startActivity(new Intent(SearchActivity.this, PHPActivity.class));
-                Toast.makeText(getApplicationContext(), Grad, Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(SearchActivity.this, PHPActivity2.class));
+               // Toast.makeText(getApplicationContext(), Grad, Toast.LENGTH_SHORT).show();
             }
             else if (Grad == "College"){
-                startActivity(new Intent(SearchActivity.this, PHPActivity2.class));
-                Toast.makeText(getApplicationContext(), Grad, Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(SearchActivity.this, PHPActivity.class));
+               // Toast.makeText(getApplicationContext(), Grad, Toast.LENGTH_SHORT).show();
 
             }
 
