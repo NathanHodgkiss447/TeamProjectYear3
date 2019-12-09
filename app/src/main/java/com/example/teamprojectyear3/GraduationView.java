@@ -1,7 +1,7 @@
 package com.example.teamprojectyear3;
 
 public class GraduationView {
-
+//Obsolete
     private String GradInfo;
 
     public GraduationView(String GradInfo) {

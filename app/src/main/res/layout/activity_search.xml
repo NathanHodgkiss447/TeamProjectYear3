@@ -22,7 +22,7 @@
             android:layout_centerInParent="true"
             android:text="Search page"
             android:textColor="@android:color/white"
-            android:textSize="50sp"
+            android:textSize="24sp"
             android:textStyle="bold" />
 
     </RelativeLayout>
@@ -69,7 +69,7 @@
                 android:layout_row="1"
                 android:layout_column="1"
                 android:onClick="onRadioButtonClicked"
-                android:text="Graduate"
+                android:text="Degrees"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium"
                 android:textColor="#FFFFFF" />
 
