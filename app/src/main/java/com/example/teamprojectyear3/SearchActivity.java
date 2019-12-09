@@ -3,75 +3,84 @@ package com.example.teamprojectyear3;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 //import android.widget.ArrayAdapter;
 import android.widget.RadioButton;
 //import android.widget.Spinner;
-import android.widget.RadioGroup;
 import android.widget.Spinner;
-import android.widget.Toast;
+import android.widget.TextView;
+
 import java.lang.String;
 import java.lang.*;
-import java.lang.reflect.Array;
 
-
-public class SearchActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener, View.OnClickListener{
+public class SearchActivity extends AppCompatActivity implements View.OnClickListener, AdapterView.OnItemSelectedListener {
 
     private Button buttonella;
     public String Grad;
     public Button Button;
-    RadioGroup radio1;
+   // RadioGroup radio1;
+  private String text;
+    Spinner spinner;
+    public String GradInfo;
 
-    public void onClick (View view) {
+
+
+
+
+    public void onClick(View view) {
 
         if (view == buttonella) {
             //logging out the user
 
             //Intent i = new Intent();
 // Set the component using a String
-            if(Grad == "Grad") {
-                startActivity(new Intent(SearchActivity.this, PHPActivity2.class));
-               // Toast.makeText(getApplicationContext(), Grad, Toast.LENGTH_SHORT).show();
-            }
-            else if (Grad == "College"){
+            if (Grad == "Grad") {
+               // startActivity(new Intent(SearchActivity.this, PHPActivity2.class));
+                // Toast.makeText(getApplicationContext(), Grad, Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(this, PHPActivity2.class);
+                intent.putExtra("EXTRA_SESSION_ID", GradInfo);
+                startActivity(intent);
+
+            } else if (Grad == "College") {
                 startActivity(new Intent(SearchActivity.this, PHPActivity.class));
-               // Toast.makeText(getApplicationContext(), Grad, Toast.LENGTH_SHORT).show();
+                // Toast.makeText(getApplicationContext(), Grad, Toast.LENGTH_SHORT).show();
 
             }
 
-        }}
+        }
+    }
 
 
+    public void onRadioButtonClicked(View view) {
+
+        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+        // Is the button now checked?
+        boolean checked = ((RadioButton) view).isChecked();
+        // Check which radio button was clicked
+        switch (view.getId()) {
+            case R.id.radio_college:
+                if (checked)
+                    Grad = "College";
+
+                spinner.setVisibility(View.GONE);
+                break;
+            case R.id.radio_grad:
+                if (checked)
+                    Grad = "Grad";
+
+                spinner.setVisibility(View.VISIBLE);
+                break;
+        }
 
 
-        public void onRadioButtonClicked(View view) {
-            // Is the button now checked?
-            boolean checked = ((RadioButton) view).isChecked();
-            // Check which radio button was clicked
-            switch(view.getId()) {
-                case R.id.radio_college:
-                    if (checked)
-                         Grad = "College";
-                    radio1.setVisibility(View.INVISIBLE);
-                    break;
-                case R.id.radio_grad:
-                    if (checked)
-                        Grad = "Grad";
-                    radio1.setVisibility(View.VISIBLE);
-                    break;
-            }
-
-
-
-            }
-
-
+    }
 
 
 
@@ -81,18 +90,12 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         setContentView(R.layout.activity_search);
 
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
-// Create an ArrayAdapter using the string array and a default spinner layout
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.GradArray, android.R.layout.simple_spinner_item);
-// Specify the layout to use when the list of choices appears
+        spinner = findViewById(R.id.spinner1);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.GradArray,
+                android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-// Apply the adapter to the spinner
         spinner.setAdapter(adapter);
-
-
-
-
+        spinner.setOnItemSelectedListener(this);
 
         //Initialising views
         buttonella = findViewById(R.id.buttonella);
@@ -105,50 +108,6 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
         buttonella.setOnClickListener(this);
 
         //<> GradArray = (Array<>) findViewById(R)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //All dylan
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -206,13 +165,28 @@ public class SearchActivity extends AppCompatActivity implements AdapterView.OnI
 }
 
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+    public void onItemSelected(AdapterView<?> parent, View view,
+                               int pos, long id) {
+        //An item was selected
+        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
+        TextView mEdit = (TextView) findViewById(R.id.mEdit);
+        spinner.setOnItemSelectedListener(this);
+          GradInfo = parent.getItemAtPosition(pos).toString();
+
+        mEdit.setText(GradInfo);
+        Log.i("MyToe", GradInfo);
+
+
+
+
+
+        // Log.i("MyLAG", "This" + GradInfo);
+
+
 
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
+    public void onNothingSelected(AdapterView<?> parent) {
+        // Another interface callback
     }
 }

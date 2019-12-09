@@ -82,7 +82,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         ImageView imgL = (ImageView)findViewById(R.id.linkedin);
 
         //Displays currently logged in user
-       /* textViewUserEmail.setText("Welcome "+user.getEmail());*/
+       /* textViewUserEmail.setInfo("Welcome "+user.getEmail());*/
 
         btnMatches.setOnClickListener(this);
         btnSearch.setOnClickListener(this);

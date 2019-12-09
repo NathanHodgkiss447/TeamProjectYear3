@@ -10,6 +10,7 @@ String femaleGrad;
         this.FPCHS = FPCHS;
         this.maleGrad = maleGrad;
         this.femaleGrad = femaleGrad;
+
     }
 
 
@@ -36,4 +37,6 @@ String femaleGrad;
     public void setFemaleGrad(String femaleGrad) {
         this.femaleGrad = femaleGrad;
     }
+
+
 }
