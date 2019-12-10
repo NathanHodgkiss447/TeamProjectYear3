@@ -8,7 +8,11 @@ import android.content.Intent;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.ProgressBar;
-
+/*
+Completed by Alex Plunkett x17331006
+This SplashScreen is based on the tutorial at
+https://www.youtube.com/watch?v=jXtof6OUtcE
+*/
 public class SplashActivity extends AppCompatActivity {
     ProgressBar progressSplash;
 

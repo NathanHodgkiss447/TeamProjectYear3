@@ -20,6 +20,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
+    /*
+    Completed by Alex Plunkett x17331006
+    the login system for this app was based on the following tutorials
+    https://www.youtube.com/watch?v=KFULmVXpO-A
+    https://www.youtube.com/watch?v=V0ZrnL-i77Q&t
+
+     */
     //defining views
     private Button buttonSignIn;
     private EditText editTextEmail;
